@@ -18,7 +18,7 @@ mongoose.connection.on("connected", () => {});
 const Schema = mongoose.Schema;
 
 const omniRPGSchema = new Schema({
-  discordName: String,
+  discordUserID: String,
   class: String,
   level: Number,
   experience: Number,
@@ -42,7 +42,7 @@ const omniRPGModel = mongoose.model("omniRPGSchema", omniRPGSchema);
 
 export const createNewUser = (discordUserID) => {
   const newUser = new omniRPGModel({
-    discordName: discordUserID,
+    discordUserID: discordUserID,
     class: "none",
     level: 1,
     experience: 0,
@@ -64,6 +64,22 @@ export const createNewUser = (discordUserID) => {
 
   try {
     newUser.save();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const updateUserClass = (discordUserID, newClass) => {
+  try {
+    omniRPGModel
+      .findOneAndUpdate(
+        { discordUserID: discordUserID },
+        { class: newClass },
+        { upsert: true },
+      )
+      .then((doc) => {
+        console.log(doc);
+      });
   } catch (err) {
     console.log(err);
   }

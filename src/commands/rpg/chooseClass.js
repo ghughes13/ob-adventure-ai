@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
+import { updateUserClass } from "../../db/mongodb.js";
 
 const chooseClass = {
   data: new SlashCommandBuilder()
@@ -16,7 +17,11 @@ const chooseClass = {
         ),
     ),
   async execute(interaction) {
-    console.log(interaction.options.getString("class"));
+    const selectedClass = interaction.options.getString("class");
+    console.log(selectedClass);
+
+    updateUserClass(interaction.user.id, selectedClass);
+
     await interaction.reply(
       "Welcome to Omni RPG! Let's get started. First, you need to choose a class. Do you want to be a Warrior, Mage, or Archer? (Use /choose-class to choose)",
     );
