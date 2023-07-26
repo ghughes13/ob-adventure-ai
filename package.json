@@ -1,0 +1,38 @@
+{
+  "name": "omnibot",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon — exec babel-node index.js"
+  },
+  "author": "Garrett Hughes @ghughes139, Divyansh Dahiya",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.7.1",
+    "discord-api-types": "^0.37.48",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.3.2",
+    "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghughes13/omni-games.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "games"
+  ],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ghughes13/omni-games/issues"
+  },
+  "homepage": "https://github.com/ghughes13/omni-games#readme",
+  "description": "",
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
